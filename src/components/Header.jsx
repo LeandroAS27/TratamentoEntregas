@@ -1,11 +1,14 @@
 import '../styles/header.scss'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Pedidos from '../data/Pedidos.json'
+import rootReducer from '../redux/rootReducer'
+import { useEffect } from 'react'
+import DataActionTypes from '../redux/actions/actionTypes'
 
 const Header = () => {
-    const orders = useSelector((state) => state.orders.orders)
+    const {id, status} = useSelector(rootReducer => rootReducer.dataReducer)
 
-    console.log(orders)
+    console.log(id)
 
     return(
         <>
@@ -17,14 +20,14 @@ const Header = () => {
                 <div className='container-info'>
                     <div className='info-block'>
                         <p className='info-title'>Pedido</p>
-                        <p className='info-data'>{Pedidos.id}</p> {/*usar o redux aqui */}
+                        <p className='info-data'>{id}</p> {/*usar o redux aqui */}
                     </div>
 
                     <div className='info-block'>
                         <p className='info-title'>Status do pedido</p>
                         <div className='info-data status'>
                             <span className='status-circle'></span>
-                            <span>{Pedidos.status}</span> {/*usar o redux aqui */}
+                            <span>{status}</span> {/*usar o redux aqui */}
                         </div>
                     </div>
 

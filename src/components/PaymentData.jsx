@@ -9,22 +9,22 @@ const PaymentData = () => {
                 
                 <div className='container-payment'>
                     <p>Subtotal</p>
-                    <p>R$ {Pedidos.totals.subtotal}</p>
+                    <p>R$ {Pedidos.totals.subtotal.toFixed(2)}</p>
                 </div>
 
                 <div className='container-payment'>
                     <p>Frete</p>
-                    <p>R$ {Pedidos.totals.freightCosts}</p>
+                    <p>R$ {Pedidos.totals.freightCosts.toFixed(2)}</p>
                 </div>
 
                 <div className='container-payment'>
                     <p>Disconto</p>
-                    <p className='discount'>- R$ {Pedidos.totals.discount}</p>
+                    <p className='discount'>- R$ {Pedidos.totals.discount.toFixed(2)}</p>
                 </div>
 
                 <div className='container-payment'>
                     <p>Valor Total</p>
-                    <p className='total'>R$ {Pedidos.totals.total}</p>
+                    <p className='total'>R$ {Pedidos.totals.total.toFixed(2)}</p>
                 </div>
 
                 <div>
@@ -34,7 +34,7 @@ const PaymentData = () => {
                 <span>Método de pagamento</span>
                 <div className='billing'>
                     <p>{Pedidos.payments[0].brand} {Pedidos.payments[0].number} Exp. {Pedidos.payments[0].expiresAt} </p>
-                    <p>{Pedidos.payments[0].installments}x de R${Pedidos.payments[0].amount}</p>
+                    <p>{Pedidos.payments[0].installments}x de R${Pedidos.payments[0].amount.toFixed(2)}</p>
                 </div>
             </aside>
         </>

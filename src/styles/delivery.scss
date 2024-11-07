@@ -1,0 +1,161 @@
+$border-color: rgba(99,99,99,0.2);
+$circle-bg: #2ba846;
+$circle-border: #2a662d;
+$black: #000;
+$box-shadow: 0px 2px 8px 0px rgba(99, 99, 99, 0.2);
+$gray-bg: #f0f0f0;
+
+@mixin arrow($direction){
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+
+    @if $direction == down{
+        border-top: 5px solid black;
+    }
+    @else if $direction == up{
+        border-bottom: 5px solid $black;
+    }
+}
+
+.container-client{
+    max-width: 100%;
+    height: auto;
+    background-color: #fff;
+    box-shadow: $box-shadow;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+.card-header{
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $black;
+    padding-bottom: 1rem;
+}
+
+.teste{
+    background-color: $gray-bg;
+    padding: 0.5rem;
+    border-right: 1px solid $black;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-icon{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow-down{
+    @include arrow(down);
+}
+
+.arrow-up{
+    @include arrow(up);
+}
+
+.status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
+}
+
+.status-circle-delivery{
+    border-radius: 50%;
+    background-color: $circle-bg;
+    border: 1px solid $circle-border;
+    width: 15px;
+    height: 15px;
+    margin: 8px;
+
+}
+
+
+.container-delivery{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    max-width: 100%;
+    row-gap: 1rem;
+    column-gap: 2rem;
+    margin-top: 1rem;
+}
+
+.delivery-description{
+    display: flex;
+    flex-direction: column;
+}
+
+.separator{
+    max-width: 100%;
+    border: 0;
+    height: 2px;
+    background-color: #ccc;
+    margin: 1.5rem 0;
+}
+
+.card-body{
+    height: 860px;
+    background-color: #fff;
+    box-shadow: $box-shadow;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+// tabela
+
+.checkout-table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    table-layout: fixed;
+}
+
+.checkout-table th,
+.checkout-table td {
+    border: 1px solid #e0e0e0;
+    padding: 1rem;
+    text-align: left;
+    border-radius: 8px; 
+}
+
+.checkout-table thead th{
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+.product-details{
+    display: flex;
+    align-items: center;
+}
+
+.product-details img{
+    width: 50px;
+    height: auto;
+    margin-right: 1rem;
+}
+
+.product-details div{
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout-table tbody tr:last-child td{
+    text-align: right;
+    font-weight: bold;
+}
+
+.checkout-table tbody tr:last-child td p{
+    margin: 0.5rem 0;
+}
