@@ -34,22 +34,22 @@ const DeliveryTwo = () => {
         <>
             <section className='container-client'>
                 <header className='card-header'>
-                    <div className='teste'>
-                        <div className='toggle-icon' onClick={handleToggle}>
-                            <span className={isExpanded ? 'arrow-up' : 'arrow-down'}></span>
+                    <div className='container-maior'>
+                            <div className='toggle-icon' onClick={handleToggle}>
+                                <span className={isExpanded ? 'arrow-up' : 'arrow-down'}></span>
+                            </div>
+
+                        <div className='info'>
+                            <p className='entrega-title'>Entrega F1</p>
+                            <span>{id}-{fulfillments.F2.id}</span>
                         </div>
-                    </div>
 
-                    <div className='info'>
-                        <p>Entrega F2</p>
-                        <span>{id}-{fulfillments.F2.id}</span>
-                    </div>
-
-                    <div>
-                        <p>Status da Entrega</p>
-                        <div className='statusA'>
-                            <span className='status-circle shipment'></span>
-                            <span>{fulfillments.F2.status}</span>
+                        <div className='status-container'>
+                            <p className='info-title'>Status da Entrega</p>
+                            <div className='status'>
+                                <span className='status-circle shipment'></span>
+                                <span>{fulfillments.F2.status}</span>
+                            </div>
                         </div>
                     </div>
                 </header>
@@ -59,30 +59,30 @@ const DeliveryTwo = () => {
                         <h2>Dados da entrega</h2>
 
                         <div className='container-delivery'>
-                            <div>
-                                <p>Retirado por</p>
+                            <div className='spacing'>
+                                <p className='info-title'>Retirado por</p>
                                 <div className='delivery-description'>
                                     <span>{fulfillments.F2.shipment.name}</span>
                                     <span>845.983.233-90</span>
                                 </div>
                             </div>
 
-                            <div>
-                                <p>Modalidade</p>
+                            <div className='spacing'>
+                                <p className='info-title'>Modalidade</p>
                                 <div>
                                     <p>{fulfillments.F2.locationType}</p>
                                 </div>
                             </div>
 
-                            <div>
-                                <p>Data de previsão Cliente</p>
+                            <div className='spacing'>
+                                <p className='info-title'>Data de previsão Cliente</p>
                                 <div>
                                     <p>{dateFormatted}</p>
                                 </div>
                             </div>
 
-                            <div>
-                                <p>Endereço de Entrega</p>
+                            <div className='spacing'>
+                                <p className='info-title'>Endereço de Entrega</p>
                                 <div>
                                     <p>{fulfillments.F2.shipment.address1}, {fulfillments.F1.shipment.number} {fulfillments.F1.shipment.city} - {fulfillments.F1.shipment.state}
                                         {fulfillments.F2.shipment.zip}
@@ -90,29 +90,29 @@ const DeliveryTwo = () => {
                                 </div>
                             </div>
 
-                            <div>
-                                <p>Transportadora</p>
+                            <div className='spacing'>
+                                <p className='info-title'>Transportadora</p>
                                 <div>
                                     <p>Sistemas S.A</p>
                                 </div>
                             </div>
 
-                            <div>
-                                <p>Tipo</p>
+                            <div className='spacing'>
+                                <p className='info-title'>Tipo</p>
                                 <div>
                                     <p>{fulfillments.F2.type}</p>
                                 </div>
                             </div>
 
-                            <div>
-                                <p>Preço do Frete</p>
+                            <div className='spacing'>
+                                <p className='info-title'>Preço do Frete</p>
                                 <div>
                                     <p>R$ {fulfillments.F2.freightCosts.totalPrice.toFixed(2)}</p>
                                 </div>
                             </div>
 
-                            <div>
-                                <p>Data Previsão Transportadora</p>
+                            <div className='spacing'>
+                                <p className='info-title'>Data Previsão Transportadora</p>
                                 <div>
                                     <p>{dateFormatted}</p>
                                 </div>
@@ -198,20 +198,20 @@ const DeliveryTwo = () => {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td colSpan='4'>
                                             <p>Items ({totalItems}) de 02 itens</p> 
-                                            <div className='prices'>
+                                            <div className='table-prices'>
                                                 <p>Subtotal</p>
                                                 <p>R${subTotal.toFixed(2)}</p>
                                             </div>
 
-                                            <div className='prices'>
+                                            <div className='table-prices'>
                                                 <p>Frete Total</p>
                                                 <p>R${frete.toFixed(2)}</p>
                                             </div>
 
-                                            <div className='prices'>
-                                                <p>Valor total</p>
+                                            <div className='table-prices'>
+                                                <p>Valor Total</p>
                                                 <p>R${Total.toFixed(2)}</p>
                                             </div>
                                             {/* vou ter que somar extraindo os valores do json */}

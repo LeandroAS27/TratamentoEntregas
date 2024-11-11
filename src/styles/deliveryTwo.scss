@@ -23,7 +23,6 @@
     padding: 1.5rem;
     border-radius: 10px;
     margin-top: 2rem;
-    overflow: auto;
 }
 
 .card-header{
@@ -35,17 +34,7 @@
     padding-bottom: 1rem;
 }
 
-.teste{
-    background-color: $gray-bg;
-    padding: 0.5rem;
-    border-right: 1px solid $black;
-    display: flex;
-    align-items: center;
-}
-
 .toggle-icon{
-    width: 20px;
-    height: 20px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -60,14 +49,12 @@
     @include arrow(up);
 }
 
-.statusA{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.status{
+    @include flex-center;
     margin-right: 40px;
 }
 
-.status-circle-deliveryA{
+.status-circle{
     border-radius: 50%;
     background-color: $circle-bg-shipment;
     border: 1px solid $circle-border-shipment;
@@ -103,8 +90,6 @@
 
 .card-body{
     height: 860px;
-    background-color: #fff;
-    box-shadow: $box-shadow;
     padding: 1.5rem;
     border-radius: 10px;
     margin-top: 2rem;
@@ -150,7 +135,7 @@
 
 .checkout-table tbody tr:last-child td{
     text-align: right;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .checkout-table tbody tr:last-child td p{
@@ -168,3 +153,10 @@
     margin: 10px;
 }
 
+.table-prices{
+    display: flex;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}

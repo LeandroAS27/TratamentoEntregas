@@ -11,19 +11,11 @@ const DeliveryOne = () => {
     const {fulfillments, id, loaded } = useSelector(rootReducer => rootReducer.dataReducer)
     const {totalItems, subTotal, Total, frete} = useOrderSummary('F1', ['AR384675', 'AR384677'])
 
-    const [isExpanded, setIsExpanded] = useState(false)
+    const [isExpanded, setIsExpanded] = useState(false);
 
-    // const frete = fulfillments.F1.freightCosts.totalPrice;
+    const date = fulfillments.F1.freightCosts.deliveryEstimatedDate;
 
-    // const itemOne = fulfillments?.F1?.items?.AR384675 || {};
-    // const itemTwo = fulfillments?.F1?.items?.AR384677 || {};
-
-    // console.log(itemOne)
-    // console.log(itemTwo)
-
-    const date = fulfillments.F1.freightCosts.deliveryEstimatedDate
-
-    const dateAdjusted = new Date(date)
+    const dateAdjusted = new Date(date);
 
     const dateFormatted = dateAdjusted.toLocaleString('pt-BR', {
         day: '2-digit',
@@ -42,22 +34,22 @@ const DeliveryOne = () => {
         <>
             <section className='container-client'>
                 <header className='card-header'>
-                    <div className='teste'>
-                        <div className='toggle-icon' onClick={handleToggle}>
-                            <span className={isExpanded ? 'arrow-up' : 'arrow-down'}></span>
+                    <div className='container-maior'>
+                            <div className='toggle-icon' onClick={handleToggle}>
+                                <span className={isExpanded ? 'arrow-up' : 'arrow-down'}></span>
+                            </div>
+
+                        <div className='info'>
+                            <p className='entrega-title'>Entrega F1</p>
+                            <span>{id}-{fulfillments.F1.id}</span>
                         </div>
-                    </div>
 
-                    <div className='info'>
-                        <p>Entrega F1</p>
-                        <span>{id}-{fulfillments.F1.id}</span>
-                    </div>
-
-                    <div>
-                        <p>Status da Entrega</p>
-                        <div className='status'>
-                            <span className='status-circle delivered'></span>
-                            <span>{fulfillments.F1.status}</span>
+                        <div className='status-container'>
+                            <p className='info-title'>Status da Entrega</p>
+                            <div className='status'>
+                                <span className='status-circle delivered'></span>
+                                <span>{fulfillments.F1.status}</span>
+                            </div>
                         </div>
                     </div>
                 </header>
@@ -66,67 +58,67 @@ const DeliveryOne = () => {
                     <section className='card-body'>
                         <h2>Dados da entrega</h2>
 
-                        <div className='container-delivery'>
-                            <div>
-                                <p>Retirado por</p>
+                        <dl className='container-delivery'>
+                            <div className='spacing'>
+                                <dt className='info-title'>Retirado por</dt>
                                 <div className='delivery-description'>
-                                    <span>{fulfillments.F1.shipment.name}</span>
-                                    <span>845.983.233-90</span>
+                                    <dd>{fulfillments.F1.shipment.name}</dd>
+                                    <dd>845.983.233-90</dd>
                                 </div>
                             </div>
 
-                            <div>
-                                <p>Modalidade</p>
+                            <div className='spacing'>
+                                <dt className='info-title'>Modalidade</dt>
                                 <div>
-                                    <p>{fulfillments.F1.locationType}</p>
+                                    <dd>{fulfillments.F1.locationType}</dd>
                                 </div>
                             </div>
 
-                            <div>
-                                <p>Data de previsão Cliente</p>
+                            <div className='spacing'>
+                                <dt className='info-title'>Data de previsão Cliente</dt>
                                 <div>
-                                    <p>{dateFormatted}</p>
+                                    <dd>{dateFormatted}</dd>
                                 </div>
                             </div>
 
-                            <div>
-                                <p>Endereço de Entrega</p>
+                            <div className='spacing'>
+                                <dt className='info-title'>Endereço de Entrega</dt>
                                 <div>
-                                    <p>{fulfillments.F1.shipment.address1}, {fulfillments.F1.shipment.number} {fulfillments.F1.shipment.city} - {fulfillments.F1.shipment.state}
+                                    <dd>{fulfillments.F1.shipment.address1}, {fulfillments.F1.shipment.number} {fulfillments.F1.shipment.city} - {fulfillments.F1.shipment.state}
                                         {fulfillments.F1.shipment.zip}
-                                    </p>
+                                    </dd>
                                 </div>
                             </div>
 
-                            <div>
-                                <p>Transportadora</p>
+                            <div className='spacing'>
+                                <dt className='info-title'>Transportadora</dt>
                                 <div>
-                                    <p>Sistemas S.A</p>
+                                    <dd>Sistemas S.A</dd>
                                 </div>
                             </div>
 
-                            <div>
-                                <p>Tipo</p>
+                            <div className='spacing'> 
+                                <dt className='info-title'>Tipo</dt>
                                 <div>
-                                    <p>{fulfillments.F1.type}</p>
+                                    <dd>{fulfillments.F1.type}</dd>
                                 </div>
                             </div>
 
-                            <div>
-                                <p>Preço do Frete</p>
+                            <div className='spacing'>
+                                <dt className='info-title'>Preço do Frete</dt>
                                 <div>
-                                    <p>R$ {fulfillments.F1.freightCosts.totalPrice.toFixed(2)}</p>
+                                    <dd>R$ {fulfillments.F1.freightCosts.totalPrice.toFixed(2)}</dd>
                                 </div>
                             </div>
 
-                            <div>
-                                <p>Data Previsão Transportadora</p>
+                            <div className='spacing'>
+                                <dt className='info-title'>Data Previsão Transportadora</dt>
                                 <div>
-                                    <p>{dateFormatted}</p>
+                                    <dd>{dateFormatted}</dd>
                                 </div>
                             </div>
 
-                        </div>
+                        </dl>
                         <div>
                             <hr className='separator'></hr>
                         </div>
@@ -206,20 +198,20 @@ const DeliveryOne = () => {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td colSpan='4'>
                                             <p>Items ({totalItems}) de 02 itens</p> 
-                                            <div className='prices'>
+                                            <div className='table-prices'>
                                                 <p>Subtotal</p>
                                                 <p>R${subTotal.toFixed(2)}</p>
                                             </div>
 
-                                            <div className='prices'>
+                                            <div className='table-prices'>
                                                 <p>Frete Total</p>
                                                 <p>R${frete.toFixed(2)}</p>
                                             </div>
 
-                                            <div className='prices'>
-                                                <p>Valor total</p>
+                                            <div className='table-prices'>
+                                                <p>Valor Total</p>
                                                 <p>R${Total.toFixed(2)}</p>
                                             </div>
                                             {/* vou ter que somar extraindo os valores do json */}

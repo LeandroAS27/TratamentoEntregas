@@ -1,55 +1,35 @@
 @import './variables.scss';
 @import './status.scss';
-
-@mixin arrow($direction){
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-
-    @if $direction == down{
-        border-top: 5px solid black;
-    }
-    @else if $direction == up{
-        border-bottom: 5px solid $black;
-    }
-}
+@import './mixins.scss';
 
 .container-client{
     max-width: 100%;
-    height: auto;
+    max-height: 1200px;
     background-color: #fff;
     box-shadow: $box-shadow;
     padding: 1.5rem;
     border-radius: 10px;
     margin-top: 2rem;
-    overflow: auto;
 }
 
 .card-header{
-    max-width: 50%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex-center(space-between, center);
     border-bottom: 1px solid $black;
     padding-bottom: 1rem;
 }
 
-.teste{
-    background-color: $gray-bg;
-    padding: 0.5rem;
-    border-right: 1px solid $black;
+.container-maior{
+    width: 100%;
     display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
     align-items: center;
 }
 
+
 .toggle-icon{
-    width: 20px;
-    height: 20px;
+    margin-right: 20px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .arrow-down{
@@ -60,6 +40,10 @@
     @include arrow(up);
 }
 
+.entrega-title{
+    font-size: 16px;
+    color: #94ac54;
+}
 
 .container-delivery{
     display: grid;
@@ -69,6 +53,12 @@
     row-gap: 1rem;
     column-gap: 2rem;
     margin-top: 1rem;
+}
+
+.spacing{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .delivery-description{
@@ -86,8 +76,6 @@
 
 .card-body{
     height: 860px;
-    background-color: #fff;
-    box-shadow: $box-shadow;
     padding: 1.5rem;
     border-radius: 10px;
     margin-top: 2rem;
@@ -108,6 +96,7 @@
     padding: 1rem;
     text-align: left;
     border-radius: 8px; 
+    
 }
 
 .checkout-table thead th{
@@ -132,22 +121,26 @@
 }
 
 .checkout-table tbody tr:last-child td{
-    text-align: right;
-    font-weight: bold;
+    font-weight: 300;
 }
 
 .checkout-table tbody tr:last-child td p{
     margin: 0.5rem 0;
 }
 
-.prices{
+.checkout-table tbody tr:last-child td.total-info{
+    text-align: right;
+}
+
+.table-prices{
     display: flex;
-    justify-content: space-between;
     margin: 1rem 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
 }
 
 .images-icon{
     border: 1px solid rgb(133, 132, 132);
     margin: 10px;
 }
-
