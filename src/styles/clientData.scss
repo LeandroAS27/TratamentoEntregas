@@ -1,11 +1,27 @@
+@import './variables.scss';
+@import './mixins.scss';
+
 .container-client{ /* otimizar o sass */
-    max-width: 70%;
+    max-width: 60%;
     max-height: 600px;
-    background-color: #fff;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    padding: 1.5rem;
+    background-color: $primary-color;
+    @include box-shadow($box-shadow);
+    padding: 1rem;
     border-radius: 10px;
-    flex: 3;
+    flex: 1.5;
+}
+
+.container-payment-client{
+    max-width: 40%;
+    max-height: 400px;
+    background-color: $primary-color;
+    @include box-shadow($box-shadow);
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    margin-top: 1rem;
 }
 
 .container-data{ /*otimizar com sass*/
@@ -39,7 +55,7 @@
 .billing{
     display: flex;
     justify-content: space-between;
-    margin: 1rem 0 3.4rem 0;
+    margin: 1rem 0;
 }
 
 .title-customer{

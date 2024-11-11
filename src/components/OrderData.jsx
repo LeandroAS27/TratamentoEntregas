@@ -1,9 +1,11 @@
 import '../styles/clientData.scss'
 import '../styles/ordersData.scss'
-import Pedidos from '../data/Pedidos.json'
+import { useSelector } from 'react-redux'
 
 const OrderData = () => {
-    const ajustedData = Pedidos.placedAt
+    const {placedAt, pointOfSale, loaded} = useSelector(rootReducer => rootReducer.dataReducer)
+
+    const ajustedData = placedAt
 
     const data = new Date(ajustedData)
 
@@ -15,6 +17,10 @@ const OrderData = () => {
         minute: '2-digit',
         hour12: false,
     })
+
+    if(!loaded){
+        return <p>Carregando...</p>
+    }
 
     return(
         <>
@@ -29,7 +35,7 @@ const OrderData = () => {
 
                     <article className='orders-data'>
                         <p className='title-orders'>Ponto de Venda</p>
-                        <span>{Pedidos.pointOfSale}</span>
+                        <span>{pointOfSale}</span>
                     </article>
 
                     <article className='orders-data'>

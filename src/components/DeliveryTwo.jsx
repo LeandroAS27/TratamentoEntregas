@@ -1,27 +1,19 @@
-import '../styles/delivery.scss'
+import '../styles/deliveryTwo.scss'
 import { useState } from 'react'
 import  { useSelector } from 'react-redux'
 
-import TenisNB from '../images/tenisNB.jpg'
-import TenisC from '../images/tenisC.jpg'
+import TenisNK from '../images/TenisNK.jpg'
+import TenisNK2 from '../images/TenisNK2.webp'
 
 import useOrderSummary from '../hooks/useOrderSummary'
 
-const DeliveryOne = () => {
+const DeliveryTwo = () => {
     const {fulfillments, id, loaded } = useSelector(rootReducer => rootReducer.dataReducer)
-    const {totalItems, subTotal, Total, frete} = useOrderSummary('F1', ['AR384675', 'AR384677'])
+    const {totalItems, subTotal, Total, frete} = useOrderSummary('F2', ['TN35568798', 'TC587879785'])
 
     const [isExpanded, setIsExpanded] = useState(false)
 
-    // const frete = fulfillments.F1.freightCosts.totalPrice;
-
-    // const itemOne = fulfillments?.F1?.items?.AR384675 || {};
-    // const itemTwo = fulfillments?.F1?.items?.AR384677 || {};
-
-    // console.log(itemOne)
-    // console.log(itemTwo)
-
-    const date = fulfillments.F1.freightCosts.deliveryEstimatedDate
+    const date = fulfillments.F2.freightCosts.deliveryEstimatedDate
 
     const dateAdjusted = new Date(date)
 
@@ -49,15 +41,15 @@ const DeliveryOne = () => {
                     </div>
 
                     <div className='info'>
-                        <p>Entrega F1</p>
-                        <span>{id}-{fulfillments.F1.id}</span>
+                        <p>Entrega F2</p>
+                        <span>{id}-{fulfillments.F2.id}</span>
                     </div>
 
                     <div>
                         <p>Status da Entrega</p>
-                        <div className='status'>
-                            <span className='status-circle delivered'></span>
-                            <span>{fulfillments.F1.status}</span>
+                        <div className='statusA'>
+                            <span className='status-circle shipment'></span>
+                            <span>{fulfillments.F2.status}</span>
                         </div>
                     </div>
                 </header>
@@ -70,7 +62,7 @@ const DeliveryOne = () => {
                             <div>
                                 <p>Retirado por</p>
                                 <div className='delivery-description'>
-                                    <span>{fulfillments.F1.shipment.name}</span>
+                                    <span>{fulfillments.F2.shipment.name}</span>
                                     <span>845.983.233-90</span>
                                 </div>
                             </div>
@@ -78,7 +70,7 @@ const DeliveryOne = () => {
                             <div>
                                 <p>Modalidade</p>
                                 <div>
-                                    <p>{fulfillments.F1.locationType}</p>
+                                    <p>{fulfillments.F2.locationType}</p>
                                 </div>
                             </div>
 
@@ -92,8 +84,8 @@ const DeliveryOne = () => {
                             <div>
                                 <p>Endereço de Entrega</p>
                                 <div>
-                                    <p>{fulfillments.F1.shipment.address1}, {fulfillments.F1.shipment.number} {fulfillments.F1.shipment.city} - {fulfillments.F1.shipment.state}
-                                        {fulfillments.F1.shipment.zip}
+                                    <p>{fulfillments.F2.shipment.address1}, {fulfillments.F1.shipment.number} {fulfillments.F1.shipment.city} - {fulfillments.F1.shipment.state}
+                                        {fulfillments.F2.shipment.zip}
                                     </p>
                                 </div>
                             </div>
@@ -108,14 +100,14 @@ const DeliveryOne = () => {
                             <div>
                                 <p>Tipo</p>
                                 <div>
-                                    <p>{fulfillments.F1.type}</p>
+                                    <p>{fulfillments.F2.type}</p>
                                 </div>
                             </div>
 
                             <div>
                                 <p>Preço do Frete</p>
                                 <div>
-                                    <p>R$ {fulfillments.F1.freightCosts.totalPrice.toFixed(2)}</p>
+                                    <p>R$ {fulfillments.F2.freightCosts.totalPrice.toFixed(2)}</p>
                                 </div>
                             </div>
 
@@ -146,62 +138,62 @@ const DeliveryOne = () => {
                                     <tr>
                                         <td>
                                             <div className='product-details'>
-                                                <img src={TenisNB} alt={fulfillments.F1.items.AR384675.name} className='images-icon' />
+                                                <img src={TenisNK} alt={fulfillments.F2.items.TN35568798.name} className='images-icon' />
                                                 <div>
-                                                    <p>{fulfillments.F1.items.AR384675.name}</p>
-                                                    <p>{fulfillments.F1.items.AR384675.color}, {fulfillments.F1.items.AR384675.size}</p>
+                                                    <p>{fulfillments.F2.items.TN35568798.name}</p>
+                                                    <p>{fulfillments.F2.items.TN35568798.color}, {fulfillments.F2.items.TN35568798.size}</p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
-                                            <p>{fulfillments.F1.items.AR384675.sku}</p>
+                                            <p>{fulfillments.F2.items.TN35568798.sku}</p>
                                         </td>
                                         <td>
-                                            <p>{fulfillments.F1.items.AR384675.quantity}</p>
+                                            <p>{fulfillments.F2.items.TN35568798.quantity}</p>
                                         </td>
                                         <td>
                                             <div className='prices'>
                                                 <p>Subtotal</p>
-                                                <p>R$ {fulfillments.F1.items.AR384675.price.toFixed(2)}</p>
+                                                <p>R$ {fulfillments.F2.items.TN35568798.price.toFixed(2)}</p>
                                             </div>
 
                                             <div className='prices'>
                                                 <p>Frete </p>
-                                                <p>R$ {fulfillments.F1.freightCosts.totalPrice.toFixed(2)}</p>
+                                                <p>R$ {fulfillments.F2.freightCosts.totalPrice.toFixed(2)}</p>
                                             </div>
 
                                             <div className='prices'>
                                                 <p>Valor total</p>
-                                                <p>R$ {fulfillments.F1.items.AR384675.price.toFixed(2)}</p>
+                                                <p>R$ {fulfillments.F2.items.TN35568798.price.toFixed(2)}</p>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <div className='product-details'>
-                                                <img src={TenisC} alt={fulfillments.F1.items.AR384677.name} className='images-icon' />
+                                                <img src={TenisNK2} alt={fulfillments.F2.items.TC587879785.name} className='images-icon' />
                                                 <div>
-                                                    <p>{fulfillments.F1.items.AR384677.name}</p>
-                                                    <p>{fulfillments.F1.items.AR384677.color}, {fulfillments.F1.items.AR384677.size}</p>
+                                                    <p>{fulfillments.F2.items.TC587879785.name}</p>
+                                                    <p>{fulfillments.F2.items.TC587879785.color}, {fulfillments.F1.items.AR384677.size}</p>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>{fulfillments.F1.items.AR384677.sku}</td>
-                                        <td>{fulfillments.F1.items.AR384677.quantity}</td>
+                                        <td>{fulfillments.F2.items.TC587879785.sku}</td>
+                                        <td>{fulfillments.F2.items.TC587879785.quantity}</td>
                                         <td>
                                             <div className='prices'>
                                                 <p>Subtotal</p>
-                                                <p>R$ {fulfillments.F1.items.AR384677.price.toFixed(2)}</p>
+                                                <p>R$ {fulfillments.F2.items.TC587879785.price.toFixed(2)}</p>
                                             </div>
                                             
                                             <div className='prices'>
                                                 <p>Frete</p>
-                                                <p>R$ {fulfillments.F1.freightCosts.totalPrice.toFixed(2)}</p>
+                                                <p>R$ {fulfillments.F2.freightCosts.totalPrice.toFixed(2)}</p>
                                             </div>
 
                                             <div className='prices'>
                                                 <p>Valor total</p>
-                                                <p>R$ {fulfillments.F1.items.AR384677.price.toFixed(2)}</p>
+                                                <p>R$ {fulfillments.F2.items.TC587879785.price.toFixed(2)}</p>
                                             </div>
                                         </td>
                                     </tr>
@@ -235,4 +227,4 @@ const DeliveryOne = () => {
     )
 }
 
-export default DeliveryOne;
+export default DeliveryTwo;

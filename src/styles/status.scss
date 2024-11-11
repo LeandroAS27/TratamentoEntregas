@@ -1,0 +1,39 @@
+$circle-bg-pending: #e4c643;
+$circle-border-pending: #d0ad11;
+$circle-bg-delivery: #2ba846;
+$circle-border-delivery: #2a662d;
+$circle-bg-shipment: #2b53a8;
+$circle-border-shipment: #2a3d66;
+
+
+.status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
+}
+
+.status-circle{
+    border-radius: 50%;
+    background-color: $circle-bg-delivery;
+    border: 1px solid $circle-border-delivery;
+    width: 15px;
+    height: 15px;
+    margin: 8px;
+
+    &.delivered{
+        background-color: $circle-bg-delivery;
+        border: 1px solid $circle-border-delivery;
+    }
+
+    &.pending{
+        background-color: $circle-bg-pending;
+        border: 2px solid $circle-border-pending;
+    }
+
+    &.shipment{
+        background-color: $circle-bg-shipment;
+        border: 1px solid $circle-border-shipment;
+    }
+
+}

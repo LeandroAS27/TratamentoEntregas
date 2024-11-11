@@ -1,30 +1,36 @@
-import Pedidos from '../data/Pedidos.json'
 import '../styles/clientData.scss'
+import { useSelector } from 'react-redux'
 
 const PaymentData = () => {
+    const {totals, payments, loaded} = useSelector(rootReducer => rootReducer.dataReducer)
+
+    if(!loaded){
+        return <p>Carregando...</p>
+    }
+
     return(
         <>
-            <aside className='container-client'>
+            <aside className='container-payment-client'>
                 <h2>Dados de Pagamento</h2>
                 
                 <div className='container-payment'>
-                    <p>Subtotal</p>
-                    <p>R$ {Pedidos.totals.subtotal.toFixed(2)}</p>
+                    <h3>Subtotal</h3>
+                    <p>R$ {totals.subtotal.toFixed(2)}</p>
                 </div>
 
                 <div className='container-payment'>
-                    <p>Frete</p>
-                    <p>R$ {Pedidos.totals.freightCosts.toFixed(2)}</p>
+                    <h3>Frete</h3>
+                    <p>R$ {totals.freightCosts.toFixed(2)}</p>
                 </div>
 
                 <div className='container-payment'>
-                    <p>Disconto</p>
-                    <p className='discount'>- R$ {Pedidos.totals.discount.toFixed(2)}</p>
+                    <h3>Desconto</h3>
+                    <p className='discount'>- R$ {totals.discount.toFixed(2)}</p>
                 </div>
 
                 <div className='container-payment'>
-                    <p>Valor Total</p>
-                    <p className='total'>R$ {Pedidos.totals.total.toFixed(2)}</p>
+                    <h3>Valor Total</h3>
+                    <p className='total'>R$ {totals.total.toFixed(2)}</p>
                 </div>
 
                 <div>
@@ -33,8 +39,8 @@ const PaymentData = () => {
 
                 <span>Método de pagamento</span>
                 <div className='billing'>
-                    <p>{Pedidos.payments[0].brand} {Pedidos.payments[0].number} Exp. {Pedidos.payments[0].expiresAt} </p>
-                    <p>{Pedidos.payments[0].installments}x de R${Pedidos.payments[0].amount.toFixed(2)}</p>
+                    <p>{payments[0].brand} {payments[0].number} Exp. {payments[0].expiresAt} </p>
+                    <p>{payments[0].installments}x de R${payments[0].amount.toFixed(2)}</p>
                 </div>
             </aside>
         </>

@@ -1,35 +1,40 @@
-import Pedidos from '../data/Pedidos.json'
 import '../styles/clientData.scss'
+import { useSelector } from 'react-redux'
 
 const ClientData = () => {
+    const {customer, billingAddress, loaded} = useSelector(rootReducer => rootReducer.dataReducer)
+
+    if(!loaded){
+        return <p>Carregando</p>
+    }
     return(
         <>
             <section className="container-client">
                 <h2>Dados do cliente</h2>
 
-                <article className='container-data'>
-                    <p className='title-customer'>{Pedidos.customer.name}</p>
+                <div className='container-data'>
+                    <h3 className='title-customer'>{customer.name}</h3>
                     <span className='info-customer'>434.654.123-90</span>
-                </article>
+                </div>
 
-                <article className='container-data'>
-                    <p className='title-customer'>{Pedidos.customer.email}</p>
-                    <span className='info-customer'>{Pedidos.customer.telephone.number}</span>
-                </article>
+                <div className='container-data'>
+                    <h3 className='title-customer'>{customer.email}</h3>
+                    <span className='info-customer'>{customer.telephone.number}</span>
+                </div>
 
-                <article className='container-data'>
-                    <p className='title-customer'>Endereço de cobrança</p>
-                    <address className='info-customer'>{Pedidos.billingAddress.address1}, {Pedidos.billingAddress.number} 
-                        {Pedidos.billingAddress.city} - {Pedidos.billingAddress.state} - {Pedidos.billingAddress.zip}
+                <div className='container-data'>
+                    <h3 className='title-customer'>Endereço de Cobrança</h3>
+                    <address className='info-customer'>{billingAddress.address1}, {billingAddress.number} 
+                        {billingAddress.city} - {billingAddress.state} - {billingAddress.zip}
                     </address>
-                </article>
+                </div>
 
-                <article className='container-data'>
-                    <p className='title-customer'>Endereço de Entrega</p>
-                    <address className='info-customer'>{Pedidos.billingAddress.address1}, {Pedidos.billingAddress.number} 
-                        {Pedidos.billingAddress.city} - {Pedidos.billingAddress.state} - {Pedidos.billingAddress.zip}
+                <div className='container-data'>
+                    <h3 className='title-customer'>Endereço de Entrega</h3>
+                    <address className='info-customer'>{billingAddress.address1}, {billingAddress.number} 
+                        {billingAddress.city} - {billingAddress.state} - {billingAddress.zip}
                     </address>
-                </article>
+                </div>
             </section>
         </>
     )

@@ -1,5 +1,5 @@
 @import './variables.scss';
-@import './status.scss';
+@import './mixins.scss';
 
 @mixin arrow($direction){
     width: 0;
@@ -27,7 +27,7 @@
 }
 
 .card-header{
-    max-width: 50%;
+    max-width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -58,6 +58,23 @@
 
 .arrow-up{
     @include arrow(up);
+}
+
+.statusA{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
+}
+
+.status-circle-deliveryA{
+    border-radius: 50%;
+    background-color: $circle-bg-shipment;
+    border: 1px solid $circle-border-shipment;
+    width: 15px;
+    height: 15px;
+    margin: 8px;
+
 }
 
 

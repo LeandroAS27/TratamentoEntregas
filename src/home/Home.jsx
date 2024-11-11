@@ -1,7 +1,7 @@
 import Header from '../components/Header'
 import '../styles/main.scss'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import DataActionTypes from '../redux/actions/actionTypes'
 
@@ -13,16 +13,32 @@ import ClientData from '../components/ClientData'
 import PaymentData from '../components/PaymentData'
 import OrderData from '../components/OrderData'
 import DeliveryOne from '../components/DeliveryOne'
+import DeliveryTwo from '../components/DeliveryTwo'
 
 const Home = () => {
     const dispatch = useDispatch()
-
+    const [loading, setLoading] = useState(true)
+    
     useEffect(() => {
-        dispatch({
-            type: DataActionTypes.Delivery,
-            payload: Pedidos,
-        })
+        const fetchData = async () => {
+            try {
+                await new Promise(resolve => setTimeout(resolve, 500));
+
+                dispatch({
+                    type: DataActionTypes.Delivery,
+                    payload: Pedidos,
+                })
+                setLoading(false)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchData()
     }, [dispatch])
+
+    if(loading){
+        return <p>Carregando...</p>
+    }
 
     return(
         <>
@@ -42,6 +58,7 @@ const Home = () => {
 
                 <section>
                     <DeliveryOne/>
+                    <DeliveryTwo/>
                 </section>
             </main>
         </>
