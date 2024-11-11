@@ -42,7 +42,7 @@ const Home = () => {
 
     return(
         <>
-            <header className=''>
+            <header>
                 <Header/>
             </header>
 
