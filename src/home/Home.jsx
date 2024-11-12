@@ -1,6 +1,6 @@
-import Header from '../components/Header'
 import '../styles/main.scss'
 
+//redux
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import DataActionTypes from '../redux/actions/actionTypes'
@@ -9,6 +9,7 @@ import DataActionTypes from '../redux/actions/actionTypes'
 import Pedidos from '../data/Pedidos.json'
 
 //componentes
+import Header from '../components/Header'
 import ClientData from '../components/ClientData'
 import PaymentData from '../components/PaymentData'
 import OrderData from '../components/OrderData'
