@@ -4,7 +4,7 @@
 
 Este é um projeto desenvolvido para gerenciar e exibir dados de entregas, utilizando Redux para gerenciamento de estados, Sass para estilização e um hook personalizado com UseMemo para realizar o cálculo otimizado dos preços.
 
-📝 Funcionalidades
+## 📝 Funcionalidades
 
 **Gerenciamento de estados**: Redux foi implementado para lidar com os dados carregados de um arquivo JSON, permitindo melhor controle sobre o estado global do aplicativo.
 
@@ -24,7 +24,7 @@ Este é um projeto desenvolvido para gerenciar e exibir dados de entregas, utili
 
 ![Segundo Pedido](./public/PedidoTwo.png)
 
-🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
 - **React**
 - **Redux** (para gerenciamento de estado)
@@ -65,7 +65,7 @@ npm run dev
 yarn dev
 O projeto estará disponível em http://localhost:5173.
 
-💡 Destaques Técnicos
+## 💡 Destaques Técnicos
 
 - Redux:
   Centraliza o estado global da aplicação, garantindo previsibilidade e facilidade de depuração.
