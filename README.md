@@ -33,6 +33,17 @@ Este é um projeto desenvolvido para gerenciar e exibir dados de entregas, utili
 - **UseMemo** (Hook para otimização do cálculo dos preços)
 - **JSON** (Utilizado como fonte de dados para simular uma API)
 
+## 💡 Destaques Técnicos
+
+- Redux:
+  Centraliza o estado global da aplicação, garantindo previsibilidade e facilidade de depuração.
+
+- useMemo:
+  Reduz o custo computacional ao recalcular valores apenas quando dependências específicas são alteradas.
+
+- Sass:
+  Facilita o uso de variáveis, mixins e aninhamento para uma estrutura de CSS organizada e eficiente.
+
 ## Instalação
 
 ## Pré-requisitos
@@ -64,17 +75,6 @@ npm run dev
 
 yarn dev
 O projeto estará disponível em http://localhost:5173.
-
-## 💡 Destaques Técnicos
-
-- Redux:
-  Centraliza o estado global da aplicação, garantindo previsibilidade e facilidade de depuração.
-
-- useMemo:
-  Reduz o custo computacional ao recalcular valores apenas quando dependências específicas são alteradas.
-
-- Sass:
-  Facilita o uso de variáveis, mixins e aninhamento para uma estrutura de CSS organizada e eficiente.
 
 Licença
 Este projeto está licenciado sob a MIT License.
